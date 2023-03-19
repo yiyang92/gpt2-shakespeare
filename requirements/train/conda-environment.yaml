@@ -1,0 +1,16 @@
+name: gpt2-shakespeare
+channels:
+  - pytorch
+  - conda-forge
+  - huggingface
+dependencies:
+  - cudatoolkit
+  - jupyterlab
+  - numpy
+  - transformers
+  - pip
+  - python=3.10
+  - pytorch==1.13.1=py3.10_cuda11.7_cudnn8.5.0_0
+  - torchaudio
+  - torchvision
+  - yaml=0.2.5
