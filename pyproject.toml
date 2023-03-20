@@ -9,6 +9,7 @@ authors = [{name = "Nikolai Zakharov"}]
 
 [project.scripts]
 train_gpt2 = "gpt_2_shakespeare.scripts.train:main"
+generate_gpt2 = "gpt_2_shakespeare.scripts.generate:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

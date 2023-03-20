@@ -25,3 +25,13 @@ For fine-tuning a model with default parameters:
 ```bash
 train_gpt2 -p gpt_finetune_shake_speare
 ```
+
+## Generate (locally)
+
+For generation, use:
+
+```bash
+generate_gpt2 -p gpt_finetune_shake_speare -c gpt2s-4.pt -i "be or not to be?"
+```
+
+where gpt2s-4.pt is the name of the fine-tuned saved parameters dictionary.

@@ -7,7 +7,12 @@ from gpt_2_shakespeare.params import GptParams
 
 
 class GPTInference:
-    def __init__(self, params: GptParams, checkpoint: Path) -> None:
+    def __init__(
+        self,
+        params: GptParams,
+        checkpoint: Path,
+        out_len: int = None,
+    ) -> None:
         self._tokenizer = GPT2Tokenizer.from_pretrained(
             pretrained_model_name_or_path=params.pretrained_model_name_or_path
         )
@@ -16,7 +21,10 @@ class GPTInference:
             state_dict=torch.load(checkpoint),
         )
         self._model.eval()
-        self._gen_len = params.max_gen_len
+        if not out_len:
+            self._gen_len = params.max_gen_len
+        else:
+            self._gen_len = out_len
 
     def _process_text(self, input: str) -> tuple[torch.Tensor, torch.Tensor]:
         tokenizer_out = self._tokenizer(input, return_tensors="pt")
@@ -27,6 +35,7 @@ class GPTInference:
     def __call__(self, input: str) -> str:
         # Inference on CPU
         input_ids, attention_mask = self._process_text(input)
+        # TODO: add temperature sampling
         output = self._model.generate(
             input_ids=input_ids,
             attention_mask=attention_mask,
