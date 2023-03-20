@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gpt_2_shakespeare"
+version = "0.0.1"
+authors = [{name = "Nikolai Zakharov"}]
+
+[project.scripts]
+train_gpt2 = "gpt_2_shakespeare.scripts.train:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["gpt_2_shakespeare", "gpt_2_shakespeare_service"]

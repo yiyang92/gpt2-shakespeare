@@ -24,6 +24,7 @@
 *.pbtxt
 !*.pbtxt.example
 cached_lm*
+*.egg-info*
 
 .vscode
 .ml-job-preset.yml
