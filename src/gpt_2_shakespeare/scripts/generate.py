@@ -51,12 +51,12 @@ def main():
     params = Registry.get_params(parsed_args["parameters"])
     ckpt_path = params.checkpoints_dir / parsed_args["checkpoint"]
     if not ckpt_path.exists():
-        raise ValueError("Checkpoints path does not exit.")
+        raise ValueError("Checkpoints path does not exit")
     gpt_inference = GPTInference(
         params=params,
         checkpoint=ckpt_path,
         out_len=parsed_args["out_len"],
     )
-    logging.info("Inference initialized.")
+    logging.info("Inference initialized")
     model_out = gpt_inference(input=parsed_args["input"])
     logging.warning(f"model output: {model_out}")

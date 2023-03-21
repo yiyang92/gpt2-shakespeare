@@ -4,7 +4,6 @@
 /*.pb/
 /*.tsv
 /sbs.py
-/*.txt
 /*.csv
 /notebooks/*.pb
 /notebooks/temp_ckpt
@@ -13,14 +12,14 @@
 /*.wav
 /*.gz
 /venv
-/checkpoints/
+*.pt
+checkpoints
 /.DS_Store
 *.pyc
 /src/hfg.egg-info/*
 /src/voice_conversion.egg-info/*
 .env
 /models
-*.pt
 *.pbtxt
 !*.pbtxt.example
 cached_lm*
